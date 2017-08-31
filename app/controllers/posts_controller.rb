@@ -6,6 +6,9 @@ before_action :is_owner?, only: [:edit, :update, :destroy]
         @posts = Post.all.order('created_at DESC')
     end    
 
+def show
+  @post = Post.find(params[:id])
+end
 def create
   @post = Post.find(params[:id])
   @post.create(post_params)
