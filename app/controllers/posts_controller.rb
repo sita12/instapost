@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
 before_action :authenticate_user!, only: [:new, :create]
+before_action :is_owner?, only: [:edit, :update]
     def index
         @posts = Post.all.order('created_at DESC')
     end    
@@ -34,6 +35,14 @@ def update
   else
     render :edit, status: :unprocessable_entity
   end
+
+end
+private
+
+def is_owner?
+ 
+def is_owner?
+  redirect_to root_path if Post.find(params[:id]).user != current_user
 end
 private
 
