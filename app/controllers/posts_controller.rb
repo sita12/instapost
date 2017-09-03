@@ -40,7 +40,12 @@ def update
   end
 
 end
-private
+
+def destroy
+  @post = Post.find(params[:id])
+  @post.destroy
+  redirect_to root_path
+end
 
 
  
@@ -48,11 +53,6 @@ def is_owner?
   redirect_to root_path if Post.find(params[:id]).user != current_user
 end
 
-def destroy
-  @post = Post.find(params[:id])
-  @post.destroy
-  redirect_to root_path
-end
 private
 
 def post_params
