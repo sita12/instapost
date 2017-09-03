@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   
   mount_uploader :photo, PhotoUploader
+    delegate :photo, :name, to: :user, prefix: true  
 
   validates :photo, :description, :user_id, presence: true
 
