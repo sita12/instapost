@@ -10,4 +10,5 @@ class UpvotesController < ApplicationController
       format.js {}
     end
   end
+
 end

@@ -10,4 +10,6 @@ class DownvotesController < ApplicationController
       format.js {}
     end
   end
+
+
 end
