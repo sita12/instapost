@@ -20,7 +20,7 @@
 
       <% post.comments.each do |comment| %>
 
-        <%= link_to comment.user.name,  user_path(comment.user_id) %> <%= comment.text %>
+      <h3>  <%= link_to comment.user.name,  user_path(comment.user_id) %> <%= comment.text %> </h3>
 
       <% end %>
 
