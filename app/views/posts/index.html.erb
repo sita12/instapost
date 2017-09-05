@@ -21,6 +21,9 @@
       <%= link_to post.user.name, user_path(post.user_id) %> <%= post.description %>
 
     </div>
+    <span id="likes_container_<%= post.id %>">
+  <%= render partial: 'likes', locals: {post: post} %>
+</span>
 
     <div class="post_comments">
 
@@ -35,9 +38,7 @@
 
 
 
-<span id="likes_container_<%= post.id %>">
-  <%= render partial: 'likes', locals: {post: post} %>
-</span>
+
       
 <% if user_signed_in? %>
   <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post,  html: { class: 'form-horizontal' } do |f| %>
