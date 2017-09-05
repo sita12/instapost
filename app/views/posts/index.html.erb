@@ -1,9 +1,15 @@
 <% @posts.each do |post| %>
   
   <div class="post_box">
-      <li><%= link_to 'Edit Post', edit_post_path(post.id) %></li>
-      <li><%= link_to 'Delete Post', post_path(post.id), method: :delete %></li>
-    <div class="post_header">
+      <% if user_signed_in? %>
+      <div class="row">
+     <div class="col-xs-6"> <%= link_to 'Edit Post', edit_post_path(post.id) %></div>
+      <div class="col-xs-6"><%= link_to 'Delete Post', post_path(post.id), method: :delete %></div>
+      </div>
+
+      
+      <% end %>
+    <div class="post_header ">
       <%= image_tag post.user.photo, class: 'prof_pic_small' %>
       <%= link_to post.user.name, user_path(post.user_id) %>
     </div>
