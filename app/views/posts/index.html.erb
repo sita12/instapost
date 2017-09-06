@@ -21,7 +21,7 @@
       <%= link_to post.user.name, user_path(post.user_id) %> <%= post.description %>
 
     </div>
-    <span id="likes_container_<%= post.id %>">
+    <span id="likes_container_<%= post.id %>" >
   <%= render partial: 'likes', locals: {post: post} %>
 </span>
 
